@@ -20,9 +20,18 @@ class CreateAccount
     }
     public static void TestDeposit(BankAccount acc)
     {
+        try { 
         Console.Write("Enter amount to deposit: ");
         decimal amount = decimal.Parse(Console.ReadLine());
+        if (amount>0)
         acc.Deposit(amount);
+        else
+        { Console.WriteLine("Вы ввели отрицательное число"); }
+        }
+        catch (FormatException ex)
+        {
+            Console.WriteLine($"Исключение: {ex.Message}");
+        }
     }
 
     static BankAccount NewBankAccount()
