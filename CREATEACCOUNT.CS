@@ -8,14 +8,16 @@ class CreateAccount
 
 
         BankAccount berts = NewBankAccount();
-        Write(berts);
         TestDeposit(berts);
-        Write(berts);
+        TestWithdraw(berts);
 
         BankAccount freds = NewBankAccount();
         Write(freds);
         TestDeposit(freds);
         Write(freds);
+        TestWithdraw(freds);
+        Write(freds);
+
 
     }
     public static void TestDeposit(BankAccount acc)
@@ -52,5 +54,14 @@ class CreateAccount
         Console.WriteLine("Account balance is {0}", acc.Balance());
         Console.WriteLine("Account type is {0}", acc.Type());
         Console.ReadLine();
+    }
+    public static void TestWithdraw(BankAccount acc)
+    {
+        Console.Write("Enter amount to withdraw: ");
+        decimal amount = decimal.Parse(Console.ReadLine());
+        if (!acc.Withdraw(amount))
+        {
+            Console.WriteLine("Insufficient funds.");
+        }
     }
 }
