@@ -9,11 +9,22 @@ class CreateAccount
 
         BankAccount berts = NewBankAccount();
         Write(berts);
-        
+        TestDeposit(berts);
+        Write(berts);
+
         BankAccount freds = NewBankAccount();
         Write(freds);
+        TestDeposit(freds);
+        Write(freds);
+
     }
-    
+    public static void TestDeposit(BankAccount acc)
+    {
+        Console.Write("Enter amount to deposit: ");
+        decimal amount = decimal.Parse(Console.ReadLine());
+        acc.Deposit(amount);
+    }
+
     static BankAccount NewBankAccount()
     {       
         BankAccount created = new BankAccount();
@@ -31,5 +42,6 @@ class CreateAccount
         Console.WriteLine("Account number is {0}",  acc.Number());
         Console.WriteLine("Account balance is {0}", acc.Balance());
         Console.WriteLine("Account type is {0}", acc.Type());
+        Console.ReadLine();
     }
 }

@@ -7,7 +7,12 @@ class BankAccount
         accBal = balance;
         accType = AccountType.Checking;
     }
-    
+    public decimal Deposit(decimal amount)
+    {
+        accBal += amount;
+        return accBal;
+    }
+
     public long Number()
     {
         return accNo;
